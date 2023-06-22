@@ -1,14 +1,84 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Menú con Opciones y Submenús</title>
+    <link href="//db.onlinewebfonts.com/c/86203afc717c0d2960e0b34fd4041e95?family=Ticking+Timebomb+BB" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="./css/main.css">
 </head>
 
 <body>
-    <p>Hola Mundo</p>
+    <div id="datetime"></div>
+
+    <div class="menu">
+        <div class="move">
+            <img src="ruta_de_la_imagen.jpg" alt="">
+            <a href="https://zarca.es">Zarca</a>
+        </div>
+
+        <div>
+            <ul>
+                <li><a href="#">Mi Perfil</a>
+                    <ul id="centrar">
+                        <li><a href="#">Modificar Perfil</a></li>
+                        <li><a href="#">Modificar Contraseña</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Empresas</a>
+                    <ul id="centrar">
+                        <li><a href="#">Empresas</a></li>
+                        <li><a href="#">Potenciales</a></li>
+                        <li><a href="#">Clientes</a></li>
+                        <li><a href="#">Proveedores</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Modulo Ubicaciones</a>
+                    <ul id="centrar">
+                        <li><a href="#">Gestion Paises </a></li>
+                        <li><a href="#">Gestion de Provincias</a></li>
+                        <li><a href="#">Gestion de Poblaciones</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Productos</a>
+                    <ul id="centrar">
+                        <li><a href="#">Familias</a></li>
+                        <li><a href="#">Tipos</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Gestion Comercial</a>
+                    <ul id="centrar">
+                        <li><a href="#">Ofertas</a></li>
+                        <li><a href="#">Contratos</a></li>
+                        <li><a href="#">Albaranes</a></li>
+                        <li><a href="#">Stocks</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">CRM</a>
+                    <ul id="centrar">
+                        <li><a href="#">Peticiones Contactos</a></li>
+                        <li><a href="#">Oportunidades</a></li>
+                        <li><a href="#">Acciones</a></li>
+                        <li><a href="#">Importar</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+        </div>
+
+
+
+        <div class="search">
+            <input type="text" placeholder="Buscar">
+            <button type="submit">Buscar</button>
+        </div>
+
+    </div>
+    <script src="./js/main.js"></script>
 </body>
 
 </html>
