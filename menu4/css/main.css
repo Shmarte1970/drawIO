@@ -1,0 +1,82 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif, Digital;
+}
+
+.body{
+    background-color: #f4f3eb;    
+}
+
+.cabecera-l1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 85px;
+    width: auto;
+    padding: 5px 10%;
+}
+
+.cabecera-l1 .logo{
+    cursor: pointer;
+}
+
+.cabecera-l2{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 85px;
+    width: auto;
+    padding: 5px 18%;
+}
+
+.cabecera-l1 .logo .img{
+    height: 70px;
+    width: auto;
+    transition: all 0.3s;
+}
+
+.cabecera-l1 .logo img:hover{
+    transform: scale(1.2);
+}
+
+.cabecera-l2 .nav .nav-links{
+    list-style: none;
+}
+
+.cabecera-l2 .nav .nav-links li{
+    display: inline-block;
+    padding: 0 20px;
+}
+
+.cabecera-l2 .nav .nav-links li:hover{
+    transform: scale(1.1);
+}
+
+.btn-buscar {
+    margin-right: 20px;
+}
+
+/*Mirar por que no me carga los estilos del reloj*/
+@import url(//db.onlinewebfonts.com/c/86203afc717c0d2960e0b34fd4041e95?family=Ticking+Timebomb+BB);
+@font-face {
+    font-family: "Ticking Timebomb BB";
+    src: url("//db.onlinewebfonts.com/t/86203afc717c0d2960e0b34fd4041e95.eot");
+    src: url("//db.onlinewebfonts.com/t/86203afc717c0d2960e0b34fd4041e95.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/86203afc717c0d2960e0b34fd4041e95.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/86203afc717c0d2960e0b34fd4041e95.woff") format("woff"), url("//db.onlinewebfonts.com/t/86203afc717c0d2960e0b34fd4041e95.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/86203afc717c0d2960e0b34fd4041e95.svg#Ticking Timebomb BB") format("svg");
+}
+
+
+#datetime {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*font-family: "Ticking Timebomb BB";*/
+    font-size: 22px;
+    color: black;
+    
+}
+
+#datetime:hover{
+    transform: scale(1.5);
+}
