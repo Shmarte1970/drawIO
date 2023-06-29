@@ -12,8 +12,6 @@ function updateTime() {
 }
 
 
-
-
 function openAlarmPopup() {
     var hour = prompt("Ingrese la hora (0-12):");
     var minute = prompt("Ingrese los minutos (0-59):");
@@ -27,8 +25,6 @@ function openAlarmPopup() {
         alert("Por favor, ingrese una hora y minutos válidos.");
     }
 }
-
-
 
 function setAlarm(hour, minute, message) {
     var now = new Date();
@@ -51,6 +47,8 @@ function setAlarm(hour, minute, message) {
         console.log("La hora de la alarma ya ha pasado.");
     }
 }
+
+
 
 
 updateTime();
