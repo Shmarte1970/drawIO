@@ -44,8 +44,8 @@
     transform: scale(1.1);   
 }
 
-.header .new-links a{
-    font-size: 700;
+.header .nav-links a{
+    
     color: rgb(126, 126, 219);
     text-decoration: none;
 }

@@ -1,5 +1,6 @@
 *{
     box-sizing: border-box;
+    max-width: 1250;
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif, Digital;
@@ -8,6 +9,9 @@
 .body{
     background-color: #f4f3eb;    
 }
+
+
+/*Primer Header */
 
 .cabecera-l1 {
     display: flex;
@@ -22,14 +26,6 @@
     cursor: pointer;
 }
 
-.cabecera-l2{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 85px;
-    width: auto;
-    padding: 5px 18%;
-}
 
 .cabecera-l1 .logo .img{
     height: 70px;
@@ -41,32 +37,68 @@
     transform: scale(1.2);
 }
 
-.cabecera-l2 .nav .nav-links{
+
+.cabecera-l1 .btn-buscar button{
+    margin-right: 20px;
+    font-weight: 700;
+    color: black;
+    font-size: 14px;
+    padding: 7px 35px;
+    background: #94aac8;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+
+.cabecera-l1 .btn-buscar button:hover{
+    background-color: black;
+    color:#94aac8;
+    transform: scale(1.05);
+}
+
+
+/*Segundo Header*/
+
+.cabecera-l2{
+   
+    align-items: center;
+    height: 85px;
+    width: auto;
+    padding: 5px 18%;
+}
+
+
+.cabecera-l2 .nav-links{
     list-style: none;
 }
 
-.cabecera-l2 .nav .nav-links li{
+.cabecera-l2 .nav-links li{
     display: inline-block;
     padding: 0 20px;
 }
 
-.cabecera-l2 .nav .nav-links li:hover{
+
+.cabecera-l2 .nav-links li:hover{
     transform: scale(1.1);
 }
 
-.btn-buscar {
-    margin-right: 20px;
+.cabecera-l2 .nav-links a{
+    font-size: 700;
+    color: rgb(126,126,219);
+    text-decoration: none;
 }
+
 
 /*Mirar por que no me carga los estilos del reloj*/
-@import url(//db.onlinewebfonts.com/c/86203afc717c0d2960e0b34fd4041e95?family=Ticking+Timebomb+BB);
+@import url(http://db.onlinewebfonts.com/c/86203afc717c0d2960e0b34fd4041e95?family=Ticking+Timebomb+BB);
 @font-face {
     font-family: "Ticking Timebomb BB";
-    src: url("//db.onlinewebfonts.com/t/86203afc717c0d2960e0b34fd4041e95.eot");
-    src: url("//db.onlinewebfonts.com/t/86203afc717c0d2960e0b34fd4041e95.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/86203afc717c0d2960e0b34fd4041e95.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/86203afc717c0d2960e0b34fd4041e95.woff") format("woff"), url("//db.onlinewebfonts.com/t/86203afc717c0d2960e0b34fd4041e95.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/86203afc717c0d2960e0b34fd4041e95.svg#Ticking Timebomb BB") format("svg");
+    src: url("http://db.onlinewebfonts.com/t/86203afc717c0d2960e0b34fd4041e95.eot");
+    src: url("http://db.onlinewebfonts.com/t/86203afc717c0d2960e0b34fd4041e95.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/86203afc717c0d2960e0b34fd4041e95.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/86203afc717c0d2960e0b34fd4041e95.woff") format("woff"), url("//db.onlinewebfonts.com/t/86203afc717c0d2960e0b34fd4041e95.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/86203afc717c0d2960e0b34fd4041e95.svg#Ticking Timebomb BB") format("svg");
 }
 
-
+/*Esta en el primer header*/
 #datetime {
     display: flex;
     justify-content: center;
@@ -74,9 +106,10 @@
     /*font-family: "Ticking Timebomb BB";*/
     font-size: 22px;
     color: black;
-    
+    margin-top: 10px;
 }
 
 #datetime:hover{
     transform: scale(1.5);
+    color: ;
 }
