@@ -2,3 +2,10 @@
         cursor: pointer;
         text-decoration: underline;
     }
+    
+    body {
+        max-height: max-content;
+        max-width: max-content;
+        height: auto;
+        background-color: #bedbf5;
+    }

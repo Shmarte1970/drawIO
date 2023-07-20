@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        body {
+            background-color: #f2f2f2;
+            font-family: Arial, sans-serif;
+        }
+        
+        .container {
+            margin: 100px auto;
+            width: 400px;
+            background-color: #ccc;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #999;
+            border-radius: 3px;
+        }
+        
+        .form-button {
+            width: 100%;
+            padding: 10px;
+            background-color: #666;
+            border: none;
+            color: #fff;
+            font-weight: bold;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        
+        .form-output {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Conversor a binario</h2>
+        <form id="converter-form">
+            <label for="word" class="form-label">Palabra:</label>
+            <input type="text" id="word" class="form-input" required>
+            <button type="submit" class="form-button">Convertir</button>
+        </form>
+        <div id="output" class="form-output"></div>
+    </div>
+    <script>
+        document.getElementById("converter-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+            var word = document.getElementById("word").value;
+            var binary = convertToBinary(word);
+            document.getElementById("output").innerHTML = "Binario: " + binary;
+        });
+
+        function convertToBinary(word) {
+            var binary = "";
+            for (var i = 0; i < word.length; i++) {
+                binary += word.charCodeAt(i).toString(2) + " ";
+            }
+            return binary.trim();
+        }
+    </script>
+</body>
+
+</html>
