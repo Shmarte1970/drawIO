@@ -33,7 +33,16 @@ public class svUsuarios extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+            String dni= request.getParameter("dni");
+            String nombre = request.getParameter("nombre");
+            String apellido = request.getParameter("apellido");
+            String movil = request.getParameter("movil");
+            
+            System.out.println(dni);
+            System.out.println(nombre);
+            System.out.println(apellido);
+            System.out.println(movil);
+            
     }
 
     
