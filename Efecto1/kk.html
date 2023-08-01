@@ -1,0 +1,46 @@
+<li>
+    <div class="  font-size14">
+
+
+        <i class="fa fa-user padRight03 font-size14"></i>
+
+
+        <div class="dpinline">
+
+
+            <h:outputText value="#{item.id}: #{item.nombre}" />
+
+
+            <h:outputText rendered="#{not empty item.descripcion}" value="(#{item.descripcion})" />
+
+
+            <div jsf:rendered="#{not empty item.telefono or not empty item.telefono2}">
+
+
+                <i class="fa fa-phone"></i>
+
+
+                <h:outputText rendered="#{not empty item.telefono}" value="#{item.telefono}" />
+
+
+                <h:outputText rendered="#{not empty item.telefono2}" value=" - #{item.telefono2}" />
+
+
+            </div>
+
+
+            <div jsf:rendered="#{not empty item.email}">
+
+
+                <i class="fa fa-envelope "></i>
+
+
+                <h:outputText value="#{item.email}" />
+
+
+            </div>
+
+
+        </div>
+    </div>
+</li>
