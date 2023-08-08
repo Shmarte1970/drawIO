@@ -2,23 +2,35 @@
 package logica;
 
 import java.util.Date;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 
-
+@Entity
+@Inheritance (strategy = InheritanceType.TABLE_PER_CLASS)
 public class Persona {
     
-   
+    @Id
+    @GeneratedValue
+    private  int id;
     private String dni;
     private String nombre_persona;
     private String apellidos;
     private String telefono;
     private String direccion;
+    @Temporal(TemporalType.DATE)
     private Date fecha_nacimiento;
 
     public Persona() {
     }
 
-    public Persona( String dni, String nombre_persona, String apellidos, String telefono, String direccion, Date fecha_nacimiento) {      
+    public Persona(int id, String dni, String nombre_persona, String apellidos, String telefono, String direccion, Date fecha_nacimiento) {
+        this.id = id;
         this.dni = dni;
         this.nombre_persona = nombre_persona;
         this.apellidos = apellidos;
@@ -27,6 +39,13 @@ public class Persona {
         this.fecha_nacimiento = fecha_nacimiento;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getDni() {
         return dni;
@@ -77,5 +96,7 @@ public class Persona {
     }
     
     
+
+  
     
 }

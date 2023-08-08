@@ -2,30 +2,21 @@
 package logica;
 
 import java.util.Date;
+import javax.persistence.Entity;
 import javax.persistence.Id;
 
-
+@Entity
 public class Responsable extends Persona{
     
-    @Id
-    private Integer id_reponsable;
+   /* @Id
+    private Integer id_reponsable; */
     private String tipo_resposable;
 
     public Responsable() {
     }
 
-    public Responsable(Integer id_reponsable, String tipo_resposable, String dni, String nombre_persona, String apellidos, String telefono, String direccion, Date fecha_nacimiento) {
-        super(dni, nombre_persona, apellidos, telefono, direccion, fecha_nacimiento);
-        this.id_reponsable = id_reponsable;
+    public Responsable(String tipo_resposable) {
         this.tipo_resposable = tipo_resposable;
-    }
-
-    public Integer getId_reponsable() {
-        return id_reponsable;
-    }
-
-    public void setId_reponsable(Integer id_reponsable) {
-        this.id_reponsable = id_reponsable;
     }
 
     public String getTipo_resposable() {
@@ -38,10 +29,6 @@ public class Responsable extends Persona{
     
     
 
- 
-
-   
-
-
+  
     
 }

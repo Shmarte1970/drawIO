@@ -2,33 +2,43 @@
 package logica;
 
 import java.util.Date;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 
+@Entity
 public class Turno {
     
-    @Id
+   @Id
+   @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idTurno;
+    @Temporal(TemporalType.DATE)
     private Date fechaTurno;
     private String horaTurno;
-    private String afeccion;
+    private String afeccion;    
+    @ManyToOne
+    @JoinColumn(name = "id_turno")
+    private Odontologo odont;
+    
+    @ManyToOne
+    @JoinColumn(name = "id_turno2")
+    private Paciente pacient;
 
     public Turno() {
     }
 
-    public Turno(Integer idTurno, Date fechaTurno, String horaTurno, String afeccion) {
-        this.idTurno = idTurno;
+    public Turno(Date fechaTurno, String horaTurno, String afeccion, Odontologo odont, Paciente pacient) {
         this.fechaTurno = fechaTurno;
         this.horaTurno = horaTurno;
         this.afeccion = afeccion;
-    }
-
-    public Integer getIdTurno() {
-        return idTurno;
-    }
-
-    public void setIdTurno(Integer idTurno) {
-        this.idTurno = idTurno;
+        this.odont = odont;
+        this.pacient = pacient;
     }
 
     public Date getFechaTurno() {
@@ -54,7 +64,23 @@ public class Turno {
     public void setAfeccion(String afeccion) {
         this.afeccion = afeccion;
     }
-    
+
+    public Odontologo getOdont() {
+        return odont;
+    }
+
+    public void setOdont(Odontologo odont) {
+        this.odont = odont;
+    }
+
+    public Paciente getPacient() {
+        return pacient;
+    }
+
+    public void setPacient(Paciente pacient) {
+        this.pacient = pacient;
+    }
+
     
     
 }
