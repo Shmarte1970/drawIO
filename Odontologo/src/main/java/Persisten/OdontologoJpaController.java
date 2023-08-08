@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import javax.transaction.UserTransaction;
 import logica.Odontologo;
 
@@ -29,12 +30,21 @@ public class OdontologoJpaController implements Serializable {
         this.utx = utx;
         this.emf = emf;
     }
+    
+    
     private UserTransaction utx = null;
     private EntityManagerFactory emf = null;
 
     public EntityManager getEntityManager() {
         return emf.createEntityManager();
     }
+    
+    
+    public OdontologoJpaController(){
+        emf=Persistence.createEntityManagerFactory("odontologico_PU");
+    }
+    
+    
 
     public void create(Odontologo odontologo) throws RollbackFailureException, Exception {
         if (odontologo.getUnaListadeTurnos() == null) {

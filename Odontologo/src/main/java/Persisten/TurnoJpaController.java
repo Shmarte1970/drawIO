@@ -12,6 +12,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Query;
 import javax.persistence.EntityNotFoundException;
+import javax.persistence.Persistence;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import javax.transaction.UserTransaction;
@@ -34,6 +35,10 @@ public class TurnoJpaController implements Serializable {
 
     public EntityManager getEntityManager() {
         return emf.createEntityManager();
+    }
+    
+        public TurnoJpaController(){
+        emf=Persistence.createEntityManagerFactory("odontologico_PU");
     }
 
     public void create(Turno turno) throws RollbackFailureException, Exception {

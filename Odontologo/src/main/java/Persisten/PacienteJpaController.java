@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import javax.transaction.UserTransaction;
 import logica.Paciente;
 
@@ -34,6 +35,10 @@ public class PacienteJpaController implements Serializable {
 
     public EntityManager getEntityManager() {
         return emf.createEntityManager();
+    }
+    
+        public PacienteJpaController(){
+        emf=Persistence.createEntityManagerFactory("odontologico_PU");
     }
 
     public void create(Paciente paciente) throws RollbackFailureException, Exception {
