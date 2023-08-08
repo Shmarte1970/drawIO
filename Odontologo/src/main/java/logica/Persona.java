@@ -1,6 +1,7 @@
 
 package logica;
 
+import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,7 +14,7 @@ import javax.persistence.TemporalType;
 
 @Entity
 @Inheritance (strategy = InheritanceType.TABLE_PER_CLASS)
-public class Persona {
+public class Persona implements Serializable {
     
     @Id
     @GeneratedValue
@@ -38,6 +39,8 @@ public class Persona {
         this.direccion = direccion;
         this.fecha_nacimiento = fecha_nacimiento;
     }
+
+
 
     public int getId() {
         return id;

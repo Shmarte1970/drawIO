@@ -1,13 +1,14 @@
 
 package logica;
 
+import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Usuario {
+public class Usuario implements Serializable {
     
    @Id
    @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,6 +26,8 @@ public class Usuario {
         this.password = password;
         this.rol = rol;
     }
+
+
 
     public Integer getId_usuario() {
         return id_usuario;

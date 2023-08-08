@@ -1,6 +1,7 @@
 
 package logica;
 
+import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,12 +14,13 @@ import javax.persistence.TemporalType;
 
 
 @Entity
-public class Turno {
+public class Turno implements Serializable {
     
-   @Id
+ /*  @Id
    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer idTurno;
+    private Integer idTurno;*/ 
     @Temporal(TemporalType.DATE)
+    @Id
     private Date fechaTurno;
     private String horaTurno;
     private String afeccion;    
@@ -40,6 +42,9 @@ public class Turno {
         this.odont = odont;
         this.pacient = pacient;
     }
+
+    
+
 
     public Date getFechaTurno() {
         return fechaTurno;
