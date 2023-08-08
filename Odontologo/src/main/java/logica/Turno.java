@@ -16,11 +16,11 @@ import javax.persistence.TemporalType;
 @Entity
 public class Turno implements Serializable {
     
- /*  @Id
+   @Id
    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer idTurno;*/ 
+    private Integer idTurno;
     @Temporal(TemporalType.DATE)
-    @Id
+ 
     private Date fechaTurno;
     private String horaTurno;
     private String afeccion;    
@@ -35,7 +35,8 @@ public class Turno implements Serializable {
     public Turno() {
     }
 
-    public Turno(Date fechaTurno, String horaTurno, String afeccion, Odontologo odont, Paciente pacient) {
+    public Turno(Integer idTurno, Date fechaTurno, String horaTurno, String afeccion, Odontologo odont, Paciente pacient) {
+        this.idTurno = idTurno;
         this.fechaTurno = fechaTurno;
         this.horaTurno = horaTurno;
         this.afeccion = afeccion;
@@ -43,7 +44,14 @@ public class Turno implements Serializable {
         this.pacient = pacient;
     }
 
-    
+
+       public Integer getIdTurno() {
+        return getIdTurno();
+    }
+
+    public void setIdTurno(Integer idTurno) {
+        this.idTurno=idTurno;
+    }
 
 
     public Date getFechaTurno() {

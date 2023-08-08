@@ -2,8 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package persistente;
+package Persisten;
 
+import Persisten.exceptions.NonexistentEntityException;
+import Persisten.exceptions.RollbackFailureException;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -13,17 +15,15 @@ import javax.persistence.EntityNotFoundException;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import javax.transaction.UserTransaction;
-import logica.Horario;
-import persistente.exceptions.NonexistentEntityException;
-import persistente.exceptions.RollbackFailureException;
+import logica.Secretario;
 
 /**
  *
  * @author Pedro Ríos
  */
-public class HorarioJpaController implements Serializable {
+public class SecretarioJpaController implements Serializable {
 
-    public HorarioJpaController(UserTransaction utx, EntityManagerFactory emf) {
+    public SecretarioJpaController(UserTransaction utx, EntityManagerFactory emf) {
         this.utx = utx;
         this.emf = emf;
     }
@@ -34,12 +34,12 @@ public class HorarioJpaController implements Serializable {
         return emf.createEntityManager();
     }
 
-    public void create(Horario horario) throws RollbackFailureException, Exception {
+    public void create(Secretario secretario) throws RollbackFailureException, Exception {
         EntityManager em = null;
         try {
             utx.begin();
             em = getEntityManager();
-            em.persist(horario);
+            em.persist(secretario);
             utx.commit();
         } catch (Exception ex) {
             try {
@@ -55,12 +55,12 @@ public class HorarioJpaController implements Serializable {
         }
     }
 
-    public void edit(Horario horario) throws NonexistentEntityException, RollbackFailureException, Exception {
+    public void edit(Secretario secretario) throws NonexistentEntityException, RollbackFailureException, Exception {
         EntityManager em = null;
         try {
             utx.begin();
             em = getEntityManager();
-            horario = em.merge(horario);
+            secretario = em.merge(secretario);
             utx.commit();
         } catch (Exception ex) {
             try {
@@ -70,9 +70,9 @@ public class HorarioJpaController implements Serializable {
             }
             String msg = ex.getLocalizedMessage();
             if (msg == null || msg.length() == 0) {
-                Integer id = horario.getId_horario();
-                if (findHorario(id) == null) {
-                    throw new NonexistentEntityException("The horario with id " + id + " no longer exists.");
+                int id = secretario.getId();
+                if (findSecretario(id) == null) {
+                    throw new NonexistentEntityException("The secretario with id " + id + " no longer exists.");
                 }
             }
             throw ex;
@@ -83,19 +83,19 @@ public class HorarioJpaController implements Serializable {
         }
     }
 
-    public void destroy(Integer id) throws NonexistentEntityException, RollbackFailureException, Exception {
+    public void destroy(int id) throws NonexistentEntityException, RollbackFailureException, Exception {
         EntityManager em = null;
         try {
             utx.begin();
             em = getEntityManager();
-            Horario horario;
+            Secretario secretario;
             try {
-                horario = em.getReference(Horario.class, id);
-                horario.getId_horario();
+                secretario = em.getReference(Secretario.class, id);
+                secretario.getId();
             } catch (EntityNotFoundException enfe) {
-                throw new NonexistentEntityException("The horario with id " + id + " no longer exists.", enfe);
+                throw new NonexistentEntityException("The secretario with id " + id + " no longer exists.", enfe);
             }
-            em.remove(horario);
+            em.remove(secretario);
             utx.commit();
         } catch (Exception ex) {
             try {
@@ -111,19 +111,19 @@ public class HorarioJpaController implements Serializable {
         }
     }
 
-    public List<Horario> findHorarioEntities() {
-        return findHorarioEntities(true, -1, -1);
+    public List<Secretario> findSecretarioEntities() {
+        return findSecretarioEntities(true, -1, -1);
     }
 
-    public List<Horario> findHorarioEntities(int maxResults, int firstResult) {
-        return findHorarioEntities(false, maxResults, firstResult);
+    public List<Secretario> findSecretarioEntities(int maxResults, int firstResult) {
+        return findSecretarioEntities(false, maxResults, firstResult);
     }
 
-    private List<Horario> findHorarioEntities(boolean all, int maxResults, int firstResult) {
+    private List<Secretario> findSecretarioEntities(boolean all, int maxResults, int firstResult) {
         EntityManager em = getEntityManager();
         try {
             CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
-            cq.select(cq.from(Horario.class));
+            cq.select(cq.from(Secretario.class));
             Query q = em.createQuery(cq);
             if (!all) {
                 q.setMaxResults(maxResults);
@@ -135,20 +135,20 @@ public class HorarioJpaController implements Serializable {
         }
     }
 
-    public Horario findHorario(Integer id) {
+    public Secretario findSecretario(int id) {
         EntityManager em = getEntityManager();
         try {
-            return em.find(Horario.class, id);
+            return em.find(Secretario.class, id);
         } finally {
             em.close();
         }
     }
 
-    public int getHorarioCount() {
+    public int getSecretarioCount() {
         EntityManager em = getEntityManager();
         try {
             CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
-            Root<Horario> rt = cq.from(Horario.class);
+            Root<Secretario> rt = cq.from(Secretario.class);
             cq.select(em.getCriteriaBuilder().count(rt));
             Query q = em.createQuery(cq);
             return ((Long) q.getSingleResult()).intValue();

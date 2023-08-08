@@ -2,8 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package persistente;
+package Persisten;
 
+import Persisten.exceptions.NonexistentEntityException;
+import Persisten.exceptions.RollbackFailureException;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -14,8 +16,6 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import javax.transaction.UserTransaction;
 import logica.Persona;
-import persistente.exceptions.NonexistentEntityException;
-import persistente.exceptions.RollbackFailureException;
 
 /**
  *

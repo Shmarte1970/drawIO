@@ -2,8 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package persistente;
+package Persisten;
 
+import Persisten.exceptions.NonexistentEntityException;
+import Persisten.exceptions.RollbackFailureException;
 import java.io.Serializable;
 import javax.persistence.Query;
 import javax.persistence.EntityNotFoundException;
@@ -16,8 +18,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.transaction.UserTransaction;
 import logica.Odontologo;
-import persistente.exceptions.NonexistentEntityException;
-import persistente.exceptions.RollbackFailureException;
 
 /**
  *
@@ -46,7 +46,7 @@ public class OdontologoJpaController implements Serializable {
             em = getEntityManager();
             List<Turno> attachedUnaListadeTurnos = new ArrayList<Turno>();
             for (Turno unaListadeTurnosTurnoToAttach : odontologo.getUnaListadeTurnos()) {
-                unaListadeTurnosTurnoToAttach = em.getReference(unaListadeTurnosTurnoToAttach.getClass(), unaListadeTurnosTurnoToAttach.getFechaTurno());
+                unaListadeTurnosTurnoToAttach = em.getReference(unaListadeTurnosTurnoToAttach.getClass(), unaListadeTurnosTurnoToAttach.getIdTurno());
                 attachedUnaListadeTurnos.add(unaListadeTurnosTurnoToAttach);
             }
             odontologo.setUnaListadeTurnos(attachedUnaListadeTurnos);
@@ -85,7 +85,7 @@ public class OdontologoJpaController implements Serializable {
             List<Turno> unaListadeTurnosNew = odontologo.getUnaListadeTurnos();
             List<Turno> attachedUnaListadeTurnosNew = new ArrayList<Turno>();
             for (Turno unaListadeTurnosNewTurnoToAttach : unaListadeTurnosNew) {
-                unaListadeTurnosNewTurnoToAttach = em.getReference(unaListadeTurnosNewTurnoToAttach.getClass(), unaListadeTurnosNewTurnoToAttach.getFechaTurno());
+                unaListadeTurnosNewTurnoToAttach = em.getReference(unaListadeTurnosNewTurnoToAttach.getClass(), unaListadeTurnosNewTurnoToAttach.getIdTurno());
                 attachedUnaListadeTurnosNew.add(unaListadeTurnosNewTurnoToAttach);
             }
             unaListadeTurnosNew = attachedUnaListadeTurnosNew;

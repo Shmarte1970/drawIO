@@ -2,8 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package persistente;
+package Persisten;
 
+import Persisten.exceptions.NonexistentEntityException;
+import Persisten.exceptions.RollbackFailureException;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -13,17 +15,15 @@ import javax.persistence.EntityNotFoundException;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import javax.transaction.UserTransaction;
-import logica.Secretario;
-import persistente.exceptions.NonexistentEntityException;
-import persistente.exceptions.RollbackFailureException;
+import logica.Usuario;
 
 /**
  *
  * @author Pedro Ríos
  */
-public class SecretarioJpaController implements Serializable {
+public class UsuarioJpaController implements Serializable {
 
-    public SecretarioJpaController(UserTransaction utx, EntityManagerFactory emf) {
+    public UsuarioJpaController(UserTransaction utx, EntityManagerFactory emf) {
         this.utx = utx;
         this.emf = emf;
     }
@@ -34,12 +34,12 @@ public class SecretarioJpaController implements Serializable {
         return emf.createEntityManager();
     }
 
-    public void create(Secretario secretario) throws RollbackFailureException, Exception {
+    public void create(Usuario usuario) throws RollbackFailureException, Exception {
         EntityManager em = null;
         try {
             utx.begin();
             em = getEntityManager();
-            em.persist(secretario);
+            em.persist(usuario);
             utx.commit();
         } catch (Exception ex) {
             try {
@@ -55,12 +55,12 @@ public class SecretarioJpaController implements Serializable {
         }
     }
 
-    public void edit(Secretario secretario) throws NonexistentEntityException, RollbackFailureException, Exception {
+    public void edit(Usuario usuario) throws NonexistentEntityException, RollbackFailureException, Exception {
         EntityManager em = null;
         try {
             utx.begin();
             em = getEntityManager();
-            secretario = em.merge(secretario);
+            usuario = em.merge(usuario);
             utx.commit();
         } catch (Exception ex) {
             try {
@@ -70,9 +70,9 @@ public class SecretarioJpaController implements Serializable {
             }
             String msg = ex.getLocalizedMessage();
             if (msg == null || msg.length() == 0) {
-                int id = secretario.getId();
-                if (findSecretario(id) == null) {
-                    throw new NonexistentEntityException("The secretario with id " + id + " no longer exists.");
+                Integer id = usuario.getId_usuario();
+                if (findUsuario(id) == null) {
+                    throw new NonexistentEntityException("The usuario with id " + id + " no longer exists.");
                 }
             }
             throw ex;
@@ -83,19 +83,19 @@ public class SecretarioJpaController implements Serializable {
         }
     }
 
-    public void destroy(int id) throws NonexistentEntityException, RollbackFailureException, Exception {
+    public void destroy(Integer id) throws NonexistentEntityException, RollbackFailureException, Exception {
         EntityManager em = null;
         try {
             utx.begin();
             em = getEntityManager();
-            Secretario secretario;
+            Usuario usuario;
             try {
-                secretario = em.getReference(Secretario.class, id);
-                secretario.getId();
+                usuario = em.getReference(Usuario.class, id);
+                usuario.getId_usuario();
             } catch (EntityNotFoundException enfe) {
-                throw new NonexistentEntityException("The secretario with id " + id + " no longer exists.", enfe);
+                throw new NonexistentEntityException("The usuario with id " + id + " no longer exists.", enfe);
             }
-            em.remove(secretario);
+            em.remove(usuario);
             utx.commit();
         } catch (Exception ex) {
             try {
@@ -111,19 +111,19 @@ public class SecretarioJpaController implements Serializable {
         }
     }
 
-    public List<Secretario> findSecretarioEntities() {
-        return findSecretarioEntities(true, -1, -1);
+    public List<Usuario> findUsuarioEntities() {
+        return findUsuarioEntities(true, -1, -1);
     }
 
-    public List<Secretario> findSecretarioEntities(int maxResults, int firstResult) {
-        return findSecretarioEntities(false, maxResults, firstResult);
+    public List<Usuario> findUsuarioEntities(int maxResults, int firstResult) {
+        return findUsuarioEntities(false, maxResults, firstResult);
     }
 
-    private List<Secretario> findSecretarioEntities(boolean all, int maxResults, int firstResult) {
+    private List<Usuario> findUsuarioEntities(boolean all, int maxResults, int firstResult) {
         EntityManager em = getEntityManager();
         try {
             CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
-            cq.select(cq.from(Secretario.class));
+            cq.select(cq.from(Usuario.class));
             Query q = em.createQuery(cq);
             if (!all) {
                 q.setMaxResults(maxResults);
@@ -135,20 +135,20 @@ public class SecretarioJpaController implements Serializable {
         }
     }
 
-    public Secretario findSecretario(int id) {
+    public Usuario findUsuario(Integer id) {
         EntityManager em = getEntityManager();
         try {
-            return em.find(Secretario.class, id);
+            return em.find(Usuario.class, id);
         } finally {
             em.close();
         }
     }
 
-    public int getSecretarioCount() {
+    public int getUsuarioCount() {
         EntityManager em = getEntityManager();
         try {
             CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
-            Root<Secretario> rt = cq.from(Secretario.class);
+            Root<Usuario> rt = cq.from(Usuario.class);
             cq.select(em.getCriteriaBuilder().count(rt));
             Query q = em.createQuery(cq);
             return ((Long) q.getSingleResult()).intValue();

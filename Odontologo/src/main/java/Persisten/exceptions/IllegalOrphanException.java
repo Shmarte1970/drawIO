@@ -1,4 +1,4 @@
-package persistente.exceptions;
+package Persisten.exceptions;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -2,8 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package persistente;
+package Persisten;
 
+import Persisten.exceptions.NonexistentEntityException;
+import Persisten.exceptions.RollbackFailureException;
 import java.io.Serializable;
 import javax.persistence.Query;
 import javax.persistence.EntityNotFoundException;
@@ -16,8 +18,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.transaction.UserTransaction;
 import logica.Paciente;
-import persistente.exceptions.NonexistentEntityException;
-import persistente.exceptions.RollbackFailureException;
 
 /**
  *
@@ -46,7 +46,7 @@ public class PacienteJpaController implements Serializable {
             em = getEntityManager();
             List<Turno> attachedListaTurno = new ArrayList<Turno>();
             for (Turno listaTurnoTurnoToAttach : paciente.getListaTurno()) {
-                listaTurnoTurnoToAttach = em.getReference(listaTurnoTurnoToAttach.getClass(), listaTurnoTurnoToAttach.getFechaTurno());
+                listaTurnoTurnoToAttach = em.getReference(listaTurnoTurnoToAttach.getClass(), listaTurnoTurnoToAttach.getIdTurno());
                 attachedListaTurno.add(listaTurnoTurnoToAttach);
             }
             paciente.setListaTurno(attachedListaTurno);
@@ -85,7 +85,7 @@ public class PacienteJpaController implements Serializable {
             List<Turno> listaTurnoNew = paciente.getListaTurno();
             List<Turno> attachedListaTurnoNew = new ArrayList<Turno>();
             for (Turno listaTurnoNewTurnoToAttach : listaTurnoNew) {
-                listaTurnoNewTurnoToAttach = em.getReference(listaTurnoNewTurnoToAttach.getClass(), listaTurnoNewTurnoToAttach.getFechaTurno());
+                listaTurnoNewTurnoToAttach = em.getReference(listaTurnoNewTurnoToAttach.getClass(), listaTurnoNewTurnoToAttach.getIdTurno());
                 attachedListaTurnoNew.add(listaTurnoNewTurnoToAttach);
             }
             listaTurnoNew = attachedListaTurnoNew;

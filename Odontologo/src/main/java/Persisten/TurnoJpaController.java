@@ -2,10 +2,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package persistente;
+package Persisten;
 
+import Persisten.exceptions.NonexistentEntityException;
+import Persisten.exceptions.RollbackFailureException;
 import java.io.Serializable;
-import java.util.Date;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -17,9 +18,6 @@ import javax.transaction.UserTransaction;
 import logica.Odontologo;
 import logica.Paciente;
 import logica.Turno;
-import persistente.exceptions.NonexistentEntityException;
-import persistente.exceptions.PreexistingEntityException;
-import persistente.exceptions.RollbackFailureException;
 
 /**
  *
@@ -38,7 +36,7 @@ public class TurnoJpaController implements Serializable {
         return emf.createEntityManager();
     }
 
-    public void create(Turno turno) throws PreexistingEntityException, RollbackFailureException, Exception {
+    public void create(Turno turno) throws RollbackFailureException, Exception {
         EntityManager em = null;
         try {
             utx.begin();
@@ -69,9 +67,6 @@ public class TurnoJpaController implements Serializable {
             } catch (Exception re) {
                 throw new RollbackFailureException("An error occurred attempting to roll back the transaction.", re);
             }
-            if (findTurno(turno.getFechaTurno()) != null) {
-                throw new PreexistingEntityException("Turno " + turno + " already exists.", ex);
-            }
             throw ex;
         } finally {
             if (em != null) {
@@ -85,7 +80,7 @@ public class TurnoJpaController implements Serializable {
         try {
             utx.begin();
             em = getEntityManager();
-            Turno persistentTurno = em.find(Turno.class, turno.getFechaTurno());
+            Turno persistentTurno = em.find(Turno.class, turno.getIdTurno());
             Odontologo odontOld = persistentTurno.getOdont();
             Odontologo odontNew = turno.getOdont();
             Paciente pacientOld = persistentTurno.getPacient();
@@ -124,7 +119,7 @@ public class TurnoJpaController implements Serializable {
             }
             String msg = ex.getLocalizedMessage();
             if (msg == null || msg.length() == 0) {
-                Date id = turno.getFechaTurno();
+                Integer id = turno.getIdTurno();
                 if (findTurno(id) == null) {
                     throw new NonexistentEntityException("The turno with id " + id + " no longer exists.");
                 }
@@ -137,7 +132,7 @@ public class TurnoJpaController implements Serializable {
         }
     }
 
-    public void destroy(Date id) throws NonexistentEntityException, RollbackFailureException, Exception {
+    public void destroy(Integer id) throws NonexistentEntityException, RollbackFailureException, Exception {
         EntityManager em = null;
         try {
             utx.begin();
@@ -145,7 +140,7 @@ public class TurnoJpaController implements Serializable {
             Turno turno;
             try {
                 turno = em.getReference(Turno.class, id);
-                turno.getFechaTurno();
+                turno.getIdTurno();
             } catch (EntityNotFoundException enfe) {
                 throw new NonexistentEntityException("The turno with id " + id + " no longer exists.", enfe);
             }
@@ -199,7 +194,7 @@ public class TurnoJpaController implements Serializable {
         }
     }
 
-    public Turno findTurno(Date id) {
+    public Turno findTurno(Integer id) {
         EntityManager em = getEntityManager();
         try {
             return em.find(Turno.class, id);
