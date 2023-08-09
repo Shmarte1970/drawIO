@@ -1,0 +1,45 @@
+/*h1{
+    text-align: center;
+    color: #7A98B9;
+    margin: 0;
+    font-size: 30px;
+    margin-top: 5px;
+}*/
+
+form {
+    width: 800px;
+    margin: auto;
+    background: rgb(0, 0, 0, 0.4);
+    padding: 10px 20px 30px 10px;
+    box-sizing: border-box;
+    margin-top: 20px;
+    border-radius: 7px;
+    background-color: #7A98B9;
+}
+
+input,
+textarea {
+    width: auto;
+    margin-bottom: 20px;
+    padding: 7px;
+    box-sizing: border-box;
+    font-size: 17px;
+    border: none;
+}
+
+#boton {
+    margin-top: 20px;
+    padding: 0 5px 50px 5px;
+    text-align: justify;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: .3s ease all;
+}
+
+#boton:hover {
+    background: rgba(216, 237, 237, 0.9)
+}
+
+#boton:hover {
+    cursor: pointer;
+}

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario con Campos en la Misma Línea</title>
+</head>
+
+<body>
+    <h2>Formulario con Campos en la Misma Línea</h2>
+    <form action="procesar_formulario.php" method="POST">
+        <div>
+            <label for="idUsuario">ID de Usuario:</label>
+            <input type="text" id="idUsuario" name="idUsuario" required>
+            <label for="username">Nombre de Usuario:</label>
+            <input type="text" id="username" name="username" required>
+        </div>
+        <div>
+
+        </div>
+        <div>
+            <label for="apellidos">Apellidos:</label>
+            <input type="text" id="apellidos" name="apellidos" required>
+        </div>
+        <div>
+            <label for="fechaAlta">Fecha de Alta:</label>
+            <input type="date" id="fechaAlta" name="fechaAlta" required>
+        </div>
+        <div>
+            <label for="fechaBaja">Fecha de Baja:</label>
+            <input type="date" id="fechaBaja" name="fechaBaja">
+        </div>
+        <div>
+            <label for="telefono">Teléfono:</label>
+            <input type="tel" id="telefono" name="telefono">
+        </div>
+        <div>
+            <label for="idProfesional">ID Profesional:</label>
+            <input type="text" id="idProfesional" name="idProfesional">
+        </div>
+        <div>
+            <label for="categoriaProfesional">Categoría Profesional:</label>
+            <input type="text" id="categoriaProfesional" name="categoriaProfesional">
+        </div>
+        <div>
+            <label for="idEspecialidad">ID Especialidad:</label>
+            <input type="text" id="idEspecialidad" name="idEspecialidad">
+        </div>
+        <div>
+            <label for="especialidad">Especialidad:</label>
+            <input type="text" id="especialidad" name="especialidad">
+        </div>
+        <div>
+            <input type="submit" value="Enviar">
+        </div>
+    </form>
+</body>
+
+</html>

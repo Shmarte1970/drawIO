@@ -11,6 +11,8 @@
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="css/styles.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./css/contact.css">
+    <link rel="stylesheet" href="./css/contac-float.css">
 </head>
 
 <body>
@@ -27,7 +29,9 @@
                         <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"></a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                             <li><a class="dropdown-item" href="#">Listado Odontologos</a></li>
-                            <li><a class="dropdown-item" href="#">Alta Odontologos</a></li>
+                            <div>
+                                <li><a id="btn-abrir-popup" class="dropdown-item boton-contacto-menu" href="#flotante">Alta Odontologos</a></li>
+                            </div>
                             <li><a class="dropdown-item" href="#">Modificacion Odontologos</a></li>
                             <li>
                                 <hr class="dropdown-divider" />
@@ -52,6 +56,65 @@
             </div>
         </div>
     </nav>
+
+    <!--Formulario Flotante-->
+
+    <section id="flotante" class="contenido">
+        <div class="overlay " id="overlay">
+            <div class="popup" id="popup">
+                <a href="#" id="btn-cerrar-popup" class="btn-cerrar-popup"><i class="fas fa-times"></i></a>
+                <h1>Empleados</h1><br><br>
+                <br>
+                <form class="midels" action="" method="POST">
+                    <div class="contenedor-inputs">
+                        <div>
+                            <label for="idUsuario">ID de Usuario:</label>
+                            <input type="text" id="idUsuario" name="idUsuario">
+
+                            <label for="username">Nombre de Usuario:</label>
+                            <input type="text" id="username" name="username">
+                        </div>
+                        <div>
+                            <label for="apellidos">Apellidos:</label>
+                            <input type="text" id="apellidos" name="apellidos">
+                        </div>
+
+                        <div>
+                            <label for="fechaAlta">Fecha de Alta:</label>
+                            <input type="date" id="fechaAlta" name="fechaAlta">
+
+                            <label for="fechaBaja">Fecha de Baja:</label>
+                            <input type="date" id="fechaBaja" name="fechaBaja">
+                        </div>
+                        <div>
+                            <label for="telefono">Teléfono:</label>
+                            <input type="tel" id="telefono" name="telefono">
+                        </div>
+                        <div>
+                            <label for="idProfesional">ID Profesional:</label>
+                            <input type="text" id="idProfesional" name="idProfesional">
+
+                            <label for="categoriaProfesional">Categoría Profesional:</label>
+                            <input type="text" id="categoriaProfesional" name="categoriaProfesional">
+
+                        </div>
+                        <div>
+                            <label for="idEspecialidad">ID Especialidad:</label>
+                            <input type="text" id="idEspecialidad" name="idEspecialidad">
+
+                            <label for="especialidad">Especialidad:</label>
+                            <input type="text" id="especialidad" name="especialidad">
+
+                        </div>
+                        <div>
+                            <input id="boton" type="button" value="Enviar" onclick="history.go(0)" />
+                        </div>
+
+                    </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Page content-->
     <div class="container">
         <div class="text-center mt-5">
@@ -64,7 +127,7 @@
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Core theme JS-->
-    <script src="js/scripts.js"></script>
+    <script src="./js/popup.js"></script>
 </body>
 
 </html>
