@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,600|Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+    <link rel="stylesheet" href="./css/contac-float.css">
+    <title>Ventana Emergente Animada</title>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <article>
+            <h1>Ventana Emergente Animada</h1>
+            <button id="btn-abrir-popup" class="btn-abrir-popup">Abrir Ventana Emergente</button>
+
+        </article>
+
+        <div class="overlay" id="overlay">
+            <div class="popup" id="popup">
+                <a href="#" id="btn-cerrar-popup" class="btn-cerrar-popup"><i class="fas fa-times"></i></a>
+                <h3>SUSCRIBETE</h3>
+                <form action="">
+                    <div class="contenedor-inputs">
+                        <input type="text" name="Campo1" placeholder="Campo1">
+                        <input type="text" name="Campo2" placeholder="Campo2">
+                        <input type="text" name="Campo3" placeholder="Campo3">
+                        <input type="text" name="Campo4" placeholder="Campo4">
+                        <input type="text" name="Campo5" placeholder="Campo5">
+                        <input type="text" name="Campo6" placeholder="Campo6">
+                        <textarea type="text" name="Campo7" placeholder="Campo7"></textarea>
+
+                    </div>
+                    <input type="submit" value="Enviar">
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="./js/popup.js"></script>
+</body>
+
+</html>
