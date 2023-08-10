@@ -2,6 +2,7 @@
 package logicas;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -21,16 +22,16 @@ import lombok.ToString;
 public class produc {
     
     @Id    
-    private int id_produc;
+    @GeneratedValue
+    private int id_persona;
     private String nombre;
     private String apellido;
     private String dni;
     private String telefono;
     private String email;
     private String cp;
+    private String pais;
     private String poblacion;
-    private String provincia;
-    
-    
-    
+  
+ 
 }
