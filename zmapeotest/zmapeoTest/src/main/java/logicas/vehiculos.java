@@ -7,6 +7,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  *
@@ -14,6 +17,10 @@ import javax.persistence.TemporalType;
  */
 
 @Entity
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+
 public class vehiculos {
     
     @Id
@@ -23,49 +30,5 @@ public class vehiculos {
     private String modelo;
     @Temporal(TemporalType.DATE)
     private Date matriculacion;
-    
 
-    public vehiculos() {
-    }
-
-    public vehiculos(int Id_vehiculos, String marca, String modelo, Date matriculacion, String color) {
-        this.Id_vehiculos = Id_vehiculos;
-        this.marca = marca;
-        this.modelo = modelo;
-        this.matriculacion = matriculacion;       
-    }
-
-    public int getId_vehiculos() {
-        return Id_vehiculos;
-    }
-
-    public void setId_vehiculos(int Id_vehiculos) {
-        this.Id_vehiculos = Id_vehiculos;
-    }
-
-    public String getMarca() {
-        return marca;
-    }
-
-    public void setMarca(String marca) {
-        this.marca = marca;
-    }
-
-    public String getModelo() {
-        return modelo;
-    }
-
-    public void setModelo(String modelo) {
-        this.modelo = modelo;
-    }
-
-    public Date getMatriculacion() {
-        return matriculacion;
-    }
-
-    public void setMatriculacion(Date matriculacion) {
-        this.matriculacion = matriculacion;
-    }
-
-    
 }
