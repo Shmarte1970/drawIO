@@ -11,4 +11,12 @@
 /test/testJPA/build/
 /PrimerServlet/PrimerServlet/target/
 /Odontologo/target/
+<<<<<<< Updated upstream
 /zmapeotest/zmapeoTest/target/
+=======
+/zpOrientaObjetosWeb/target/
+/kk/target/
+/poo/z1Poo/target/
+/z1PooLombok/z1PookLombok/target/
+/Lombok/Lombok/target/
+>>>>>>> Stashed changes
