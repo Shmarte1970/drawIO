@@ -1,0 +1,17 @@
+beans\AbstractFacade.class
+jsf\clases\ClientesController.class
+dao\exceptions\NonexistentEntityException.class
+beans\ClientesFacade.class
+jsf\clases\EmpresaController.class
+dao\ClientesJpaController.class
+jsf\clases\util\JsfUtil.class
+entities\Empresa.class
+beans\EmpresaFacade.class
+entities\Clientes.class
+dao\EmpresaJpaController.class
+jsf\clases\EmpresaController$EmpresaControllerConverter.class
+dao\exceptions\PreexistingEntityException.class
+dao\exceptions\RollbackFailureException.class
+jsf\clases\ClientesController$ClientesControllerConverter.class
+jsf\clases\util\JsfUtil$PersistAction.class
+dao\exceptions\IllegalOrphanException.class

@@ -1,0 +1,72 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/css.css to edit this template
+*/
+/* 
+    Created on : 06-jul-2023, 7:12:19
+    Author     : Pedro Ríos
+*/
+
+
+.nav-div{
+    margin-top:10px;
+    margin-bottom: 20px;
+    margin-left: 10px;
+    height: 50px;
+    width: 50px;
+}
+
+.posone{
+    top:10px;
+    left:-40px;    
+}
+
+
+.btnpr{
+    text-decoration: none;
+    padding: 10px 30px;
+    font-size: 1.5rem;
+    position: relative;
+    margin: 32px;
+}
+
+.btnOne{ 
+   background: #039be5;
+   color:white;
+   border-radius: 50px;
+   transition: transform 0.3s ease;
+}
+
+.btnOne::after, .btnOne::before{
+    content: "";
+    position: absolute;
+    opacity: 0.3;
+    background: #039be5;
+    border-radius: inherit;
+    width: 100%;
+    height: 100%;
+    left:0;
+    bottom: 0;
+    z-index: -1;
+    transition: transform 0.3s ease;
+}
+
+
+.btnOne:hover{
+    transform: translate(-12px, -12px);
+}
+
+.btnOne:hover::after{
+    transform: translate(6px, 6px);
+}
+
+.btnOne:hover::before{
+    transform: translate(12px, 12px);
+}
+
+
+
+
+
+
+

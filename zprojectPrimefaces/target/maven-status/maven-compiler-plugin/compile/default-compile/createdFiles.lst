@@ -1,0 +1,13 @@
+jsf\clases\ClientesController.class
+entidades\Clientes_.class
+entidades\Clientes.class
+bean\ClientesFacade.class
+jsf\clases\EmpresaController.class
+jsf\clases\util\JsfUtil.class
+entidades\Empresa_.class
+bean\AbstractFacade.class
+entidades\Empresa.class
+jsf\clases\EmpresaController$EmpresaControllerConverter.class
+bean\EmpresaFacade.class
+jsf\clases\ClientesController$ClientesControllerConverter.class
+jsf\clases\util\JsfUtil$PersistAction.class

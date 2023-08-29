@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ClientesViewDlg" widgetVar="ClientesViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewClientesTitle}">
+            <h:form id="ClientesViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{clientesController.selected != null}">
+                        <h:outputText value="#{bundle.ViewClientesLabel_idCliente}"/>
+                        <h:outputText value="#{clientesController.selected.idCliente}" title="#{bundle.ViewClientesTitle_idCliente}"/>
+                        <h:outputText value="#{bundle.ViewClientesLabel_nombreCliente}"/>
+                        <h:outputText value="#{clientesController.selected.nombreCliente}" title="#{bundle.ViewClientesTitle_nombreCliente}"/>
+                        <h:outputText value="#{bundle.ViewClientesLabel_apellidoCliente}"/>
+                        <h:outputText value="#{clientesController.selected.apellidoCliente}" title="#{bundle.ViewClientesTitle_apellidoCliente}"/>
+                        <h:outputText value="#{bundle.ViewClientesLabel_idempresa}"/>
+                        <h:outputText value="#{clientesController.selected.idempresa}" title="#{bundle.ViewClientesTitle_idempresa}"/>
+                        <h:outputText value="#{bundle.ViewClientesLabel_ciudad}"/>
+                        <h:outputText value="#{clientesController.selected.ciudad}" title="#{bundle.ViewClientesTitle_ciudad}"/>
+                        <h:outputText value="#{bundle.ViewClientesLabel_pais}"/>
+                        <h:outputText value="#{clientesController.selected.pais}" title="#{bundle.ViewClientesTitle_pais}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="ClientesViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

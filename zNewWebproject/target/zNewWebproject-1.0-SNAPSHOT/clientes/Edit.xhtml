@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ClientesEditDlg" widgetVar="ClientesEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditClientesTitle}">
+            <h:form id="ClientesEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{clientesController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditClientesLabel_idCliente}" for="idCliente" />
+                        <p:inputText id="idCliente" value="#{clientesController.selected.idCliente}" title="#{bundle.EditClientesTitle_idCliente}" required="true" requiredMessage="#{bundle.EditClientesRequiredMessage_idCliente}"/>
+                        <p:outputLabel value="#{bundle.EditClientesLabel_nombreCliente}" for="nombreCliente" />
+                        <p:inputText id="nombreCliente" value="#{clientesController.selected.nombreCliente}" title="#{bundle.EditClientesTitle_nombreCliente}" required="true" requiredMessage="#{bundle.EditClientesRequiredMessage_nombreCliente}"/>
+                        <p:outputLabel value="#{bundle.EditClientesLabel_apellidoCliente}" for="apellidoCliente" />
+                        <p:inputText id="apellidoCliente" value="#{clientesController.selected.apellidoCliente}" title="#{bundle.EditClientesTitle_apellidoCliente}" required="true" requiredMessage="#{bundle.EditClientesRequiredMessage_apellidoCliente}"/>
+                        <p:outputLabel value="#{bundle.EditClientesLabel_idempresa}" for="idempresa" />
+                        <p:inputText id="idempresa" value="#{clientesController.selected.idempresa}" title="#{bundle.EditClientesTitle_idempresa}" required="true" requiredMessage="#{bundle.EditClientesRequiredMessage_idempresa}"/>
+                        <p:outputLabel value="#{bundle.EditClientesLabel_ciudad}" for="ciudad" />
+                        <p:inputText id="ciudad" value="#{clientesController.selected.ciudad}" title="#{bundle.EditClientesTitle_ciudad}" required="true" requiredMessage="#{bundle.EditClientesRequiredMessage_ciudad}"/>
+                        <p:outputLabel value="#{bundle.EditClientesLabel_pais}" for="pais" />
+                        <p:inputText id="pais" value="#{clientesController.selected.pais}" title="#{bundle.EditClientesTitle_pais}" required="true" requiredMessage="#{bundle.EditClientesRequiredMessage_pais}"/>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{clientesController.update}" value="#{bundle.Save}" update="display,:ClientesListForm:datalist,:growl" oncomplete="handleSubmit(args, 'ClientesEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="ClientesEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

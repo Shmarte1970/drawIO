@@ -1,0 +1,14 @@
+C:\xampp\htdocs\drawIO\zprojectPrimefaces\src\main\java\bean\EmpresaFacade.java
+C:\xampp\htdocs\drawIO\zprojectPrimefaces\src\main\java\dao\exceptions\NonexistentEntityException.java
+C:\xampp\htdocs\drawIO\zprojectPrimefaces\src\main\java\bean\ClientesFacade.java
+C:\xampp\htdocs\drawIO\zprojectPrimefaces\src\main\java\dao\ClientesJpaController.java
+C:\xampp\htdocs\drawIO\zprojectPrimefaces\src\main\java\entidades\Empresa.java
+C:\xampp\htdocs\drawIO\zprojectPrimefaces\src\main\java\jsf\clases\EmpresaController.java
+C:\xampp\htdocs\drawIO\zprojectPrimefaces\src\main\java\jsf\clases\util\JsfUtil.java
+C:\xampp\htdocs\drawIO\zprojectPrimefaces\src\main\java\bean\AbstractFacade.java
+C:\xampp\htdocs\drawIO\zprojectPrimefaces\src\main\java\dao\EmpresaJpaController.java
+C:\xampp\htdocs\drawIO\zprojectPrimefaces\src\main\java\dao\exceptions\IllegalOrphanException.java
+C:\xampp\htdocs\drawIO\zprojectPrimefaces\src\main\java\dao\exceptions\RollbackFailureException.java
+C:\xampp\htdocs\drawIO\zprojectPrimefaces\src\main\java\jsf\clases\ClientesController.java
+C:\xampp\htdocs\drawIO\zprojectPrimefaces\src\main\java\dao\exceptions\PreexistingEntityException.java
+C:\xampp\htdocs\drawIO\zprojectPrimefaces\src\main\java\entidades\Clientes.java

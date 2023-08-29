@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateClientesTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateClientesLabel_idCliente}" for="idCliente" />
+                    <h:inputText id="idCliente" value="#{clientesController.selected.idCliente}" title="#{bundle.CreateClientesTitle_idCliente}" required="true" requiredMessage="#{bundle.CreateClientesRequiredMessage_idCliente}"/>
+                    <h:outputLabel value="#{bundle.CreateClientesLabel_nombreCliente}" for="nombreCliente" />
+                    <h:inputText id="nombreCliente" value="#{clientesController.selected.nombreCliente}" title="#{bundle.CreateClientesTitle_nombreCliente}" required="true" requiredMessage="#{bundle.CreateClientesRequiredMessage_nombreCliente}"/>
+                    <h:outputLabel value="#{bundle.CreateClientesLabel_apellidoCliente}" for="apellidoCliente" />
+                    <h:inputText id="apellidoCliente" value="#{clientesController.selected.apellidoCliente}" title="#{bundle.CreateClientesTitle_apellidoCliente}" required="true" requiredMessage="#{bundle.CreateClientesRequiredMessage_apellidoCliente}"/>
+                    <h:outputLabel value="#{bundle.CreateClientesLabel_idempresa}" for="idempresa" />
+                    <h:inputText id="idempresa" value="#{clientesController.selected.idempresa}" title="#{bundle.CreateClientesTitle_idempresa}" required="true" requiredMessage="#{bundle.CreateClientesRequiredMessage_idempresa}"/>
+                    <h:outputLabel value="#{bundle.CreateClientesLabel_ciudad}" for="ciudad" />
+                    <h:inputText id="ciudad" value="#{clientesController.selected.ciudad}" title="#{bundle.CreateClientesTitle_ciudad}" required="true" requiredMessage="#{bundle.CreateClientesRequiredMessage_ciudad}"/>
+                    <h:outputLabel value="#{bundle.CreateClientesLabel_pais}" for="pais" />
+                    <h:inputText id="pais" value="#{clientesController.selected.pais}" title="#{bundle.CreateClientesTitle_pais}" required="true" requiredMessage="#{bundle.CreateClientesRequiredMessage_pais}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{clientesController.create}" value="#{bundle.CreateClientesSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{clientesController.prepareList}" value="#{bundle.CreateClientesShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateClientesIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
