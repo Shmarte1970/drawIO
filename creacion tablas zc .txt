@@ -1,0 +1,140 @@
+create table zcPersonal (
+	id serial Primary Key,
+	password VARCHAR(50),
+	email VARCHAR(50),
+	nombre VARCHAR(50),
+	apellidos VARCHAR(50),
+	usernname VARCHAR(50),
+	fechaAlta DATE,
+	fechaBaja DATE,
+	telefono VARCHAR(50),
+	idCategoriaProfesiona INT,
+	CategoriaProfesiona VARCHAR(50),
+	idEspecilidad INT,
+	Especilidad VARCHAR(50)
+);
+
+
+create table zcCategoria (
+	id serial Primary key,
+	Categoria VARCHAR(50)
+);
+
+
+create table zcEspecialidad (
+	id serial Primary Key,
+	especialidad VARCHAR(50),
+	idCategoria INT,
+	Categoria VARCHAR(50)
+);
+
+
+create table zcProductos (
+	idProducto INT,
+	codiProducto VARCHAR(15),
+	descripcion VARCHAR(50),
+	idFamilia INT,
+	idTipoProducto INT,
+	documentoPdf VARCHAR(50),
+	longitud DECIMAL(3,2),
+	altura DECIMAL(3,2),
+	anchura DECIMAL(3,2),
+	fechaCompra DATE,
+	fechaVenta DATE,
+	precioCompra DECIMAL(6,2),
+	precioVenta DECIMAL(6,2),
+	precioAlquiler DECIMAL(6,2),
+	idFlota INT,
+	desFlotaUltMov VARCHAR(50),
+	fechaFlotaUltMovHisto DATE,
+	idEstado INT,
+	desEstadoUltMovHisto VARCHAR(50),
+	fechaEstadoUltMovHisto DATE,
+	idCondicion INT,
+	desCondiUltMovHisto VARCHAR(50),
+	fechaCondiUltMovHisto DATE,
+	idFabricante INT,
+	nomFabricante VARCHAR(50),
+	observaciones VARCHAR(50)
+);
+
+create table zcFamProduct (
+	idFamilia INT,
+	NomFamilia VARCHAR(20)
+);
+
+create table zcTipoProduct (
+	idTipoProduct INT,
+	DescTipoProduc VARCHAR(50)
+);
+
+create table zcAlmacenes (
+	idAlmacen INT,
+	codAlmacen VARCHAR(50),
+	descripcion VARCHAR(50),
+	direccion VARCHAR(50),
+	idPoblacion INT,
+	observaciones VARCHAR(50)
+);
+
+create table zcFlota (
+	idFlota serial Primary Key,
+	descripFlota VARCHAR(30)
+);
+
+create table zcFlotaHisto (
+	idFlotaHosto serial Primary Key,
+	idFlota INT,
+	desFlota VARCHAR(50),
+	fechaHistoFlota DATE,
+	idEmpleado INT,
+	nombreEmpleado VARCHAR(50)
+);
+
+create table zcEstado (
+	idEstado INT,
+	descripEstado VARCHAR(50)
+);
+
+create table zcEstadoHisto (
+	idEstadoHisto serial Primary Key,
+	idEstado INT,
+	desEstado VARCHAR(50),
+	fechaEstodaFlota DATE,
+	idEmpleado INT,
+	nombreEmpleado VARCHAR(50)
+);
+
+create table zcEstadoHisto (
+	idEstadoHisto serial Primary Key,
+	idEstado INT,
+	desEstado VARCHAR(50),
+	fechaHistoEstado DATE,
+	idEmpleado INT,
+	nombreEmpleado VARCHAR(50)
+);
+
+
+create table zcCondicion (
+	idCondicion serial Primary Key,
+	descCondicion VARCHAR(50)
+);
+
+
+create table zcPoblacion (
+	idPoblacion serial primary key,
+    nombrePoblacion varchar (50),
+    cpPoblacion varchar(8),
+    idProvincia int (11)
+);
+
+
+create table zcIva(
+	idIva serial primary key,
+    ivaLeyenda varchar (15),
+    tipoIva double (4,2)
+);
+
+
+
+
