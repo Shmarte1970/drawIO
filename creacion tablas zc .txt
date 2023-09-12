@@ -135,6 +135,13 @@ create table zcIva(
     tipoIva double (4,2)
 );
 
+create table zcvencimiento (
+	idVencimiento serial primary key,
+    desVenci varchar (20)
+);
+
+
+
 
 
 
