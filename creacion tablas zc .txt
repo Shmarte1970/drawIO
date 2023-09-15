@@ -141,7 +141,58 @@ create table zcvencimiento (
 );
 
 
+create table zcOfertasCabecera (
+	idOferta serial primary key,
+    idGrupoOferta int,
+    idRevision int,
+    idPotencial int,
+    idEmpresa int,
+    nomEmpresa varchar (25),
+    telefono varchar (15),
+    telefono1 varchar (15),
+    idCoontacto int,
+    nombreContacto varchar(50),
+    fechaOferta date, 
+    diasEspera int (2),
+    mailEmpresa varchar (20),
+    fechaMail date,
+    idPoblacion int,
+    nomPoblacion varchar (80),
+    nomProvincia varchar (80),
+    nomPais varchar (50),
+    mesesAlquiler float (2,2),
+    precioPor char,
+    observaciones varchar (120),
+    idFormaPago int,
+    nomFormaPago varchar (20),
+    nomVencimiento varchar (20),
+    desPago varchar (20),
+    fechaModificacion date,
+    endPorAdelantado boolean,
+    devPorAdelantado boolean
+);
 
+create table zcLineasOfertas (
+	idLinea serial primary key,
+    idOferta int,
+    idTipoProducto	int,
+    tipoOpe	varchar (15),
+    descArti varchar (30),
+    precioArt float (8,2),
+    mantenimiento float (8,2),
+    camEnvio varchar (30),
+    precioEnvio float (8,2),
+    camVuelta varchar (30),
+    precioVuelta float (8,2),
+    precioMontaje float (8,2),
+    precioDesmontaje float (8,2),
+    observaciones	varchar (50)
+);
+
+create table zcCamionEnvio (
+	idCamEnvio	serial primary key,
+    camionEnvio varchar (30)
+);
 
 
 
