@@ -194,5 +194,18 @@ create table zcCamionEnvio (
     camionEnvio varchar (30)
 );
 
+create table zcRoles (
+	idRoles serial primary key,
+    descripcion varchar (15)
+);
 
+create table zcNroles (
+	idNroles serial primary key,
+    idUsuario int (4),
+    idRoles int (4)
+);
+
+Consulta a tres de inner join 
+
+select P.nombre, N.idNroles, R.rol from zcPersonal P join zcNroles N on P.id = N.idUsuario right join zcRoles R on R.idRoles = N.idRoles order by P.nombre
 
