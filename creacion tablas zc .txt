@@ -205,6 +205,11 @@ create table zcNroles (
     idRoles int (4)
 );
 
+create table zcUrbana(
+	idUrbana serial primary key,
+    urbana varchar (15)
+);
+
 Consulta a tres de inner join 
 
 select P.nombre, N.idNroles, R.rol from zcPersonal P join zcNroles N on P.id = N.idUsuario right join zcRoles R on R.idRoles = N.idRoles order by P.nombre

@@ -1,8 +1,9 @@
 export interface Empresa {
     id?:number;
-    company:string;   
+    usuario:string;   
     telefono:string;    
-    contacto:string;
     poblacion:string;
+    dadoDeAlta:string;
+    
 
 }

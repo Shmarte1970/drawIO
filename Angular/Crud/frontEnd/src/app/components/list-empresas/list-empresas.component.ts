@@ -8,8 +8,8 @@ import { Empresa } from 'src/app/interfaces/empresa';
 })
 export class ListEmpresasComponent implements OnInit{
     listEmpresas: Empresa [] =[
-      {id: 1, company: `Zarca, S.L.`, telefono: `678995325`, contacto: `Pedro Rios`, poblacion:`Castellbisbal` },
-      {id: 2, company: `Clinica Teknon`, telefono: `696040483`, contacto: `Angeles Soler`, poblacion:`Barcelona` }
+      {id: 1, usuario: `Armando Bronca`, telefono: `678995325`,  poblacion:`Castellbisbal`, dadoDeAlta: `Pedro Rios` },
+      {id: 2, usuario: `Dolores Fuertes`, telefono: `696040483`,  poblacion:`Barcelona`, dadoDeAlta: `Angeles Soler` }
   ]
 
 
