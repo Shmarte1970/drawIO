@@ -13,18 +13,13 @@ export class ListEmpresasComponent implements OnInit{
   ]
 
 
-  constructor(private _productService: ProductService) {}
+  constructor() {}
 
   ngOnInit(): void {
-    this.getListEmpresa
+    
       
   }
 
-  getListEmpresa(){
-    this._productService.getListEmpresa().subscribe((data) =>{
-      console.log(data);
-    })
-
-  }
+  
 
 }
