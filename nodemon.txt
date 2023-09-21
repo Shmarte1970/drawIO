@@ -1,5 +1,9 @@
 servicios 
 
+front-end
+ng serve --o
+
+
 server 
 nodemon dist/index.js
 tsc --watch
