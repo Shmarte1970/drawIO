@@ -1,0 +1,5 @@
+servicios 
+
+server 
+nodemon dist/index.js
+tsc --watch
