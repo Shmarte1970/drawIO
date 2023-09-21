@@ -1,3 +1,8 @@
-const nombre: string = 'Pedro';
+import Server from "./models/server";
+import dotenv from 'dotenv'
 
-console.log(nombre);
+// Configuracion de variables de ambiente
+
+dotenv.config();
+
+const server = new Server();
