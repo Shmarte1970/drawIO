@@ -172,7 +172,7 @@ create table zcOfertasCabecera (
     devPorAdelantado boolean
 );
 
-create table zcLineasOfertas (
+create table zcOfertasLineas (
 	idLinea serial primary key,
     idOferta int,
     idTipoProducto	int,
@@ -208,6 +208,62 @@ create table zcNroles (
 create table zcUrbana(
 	idUrbana serial primary key,
     urbana varchar (15)
+);
+
+create table zcContratoCabecera (
+	idContrato				serial primary key,
+    numContrato				varchar	(25),
+    fechaContrato			date,
+    telefonoPersonalZarca	varchar (15),
+    emailPersonalZarca		varchar (30),
+    idEmpresa				int (11),
+    cifEmpresa				varchar (12),
+    nomEmpresa				varchar (25),
+    urbanaEmpresa			varchar (15),
+    direccFiscal			varchar (30),
+    cpEmpresa				varchar (5),
+    idPoblacionEmpresa		varchar (11),
+    poblacionEmpresa		varchar (80),
+    provinciaEmpresa		varchar (80),
+    telefonoEmpresa			varchar (15),
+    telefonoEmpresa2		varchar (15),
+    emailEmpresa			varchar (15),
+    idContacto				int		(11),
+    nombreApellidoContacto	varchar (40),
+    idDelegacion			int		(11),
+    urbana1					varchar	(15),
+    fiscalDireccion1		varchar	(255),
+    cpFiscal1				varchar	(5),
+    idPoblacion1			int		(11),
+    poblacion1				varchar (80),
+    provincia1				varchar (80),
+    urbana2					varchar (15),
+    fiscalDireccion2		varchar (255),
+    cpFiscal2				varchar (5),
+    idPoblacion2			int		(11),
+    poblacion2				varchar (80),
+    provincia2				varchar (80)
+);
+
+create table zcContratoLineas (
+	idContratoLineas serial primary key,
+    idContrato 				int 	(11),
+    idProducto				int		(11),
+    descripcionProducto		varchar (30),
+    cantidad				int		(11),
+    precioProducto			double	(8,2),
+    totalLineas				double	(8,2)    
+);
+
+create table OfertasLineas (
+	idLineasOferta serial primary key,
+    idOferta int (11),
+    idArt int (11),
+    descripArt varchar (50),
+    pvpArt double (6,2),
+    idIva int (2),
+    cuotaIva double (6,2),
+    totalLinea double (8,2)
 );
 
 Consulta a tres de inner join 
