@@ -1,0 +1,34 @@
+
+select @tmpoferta :=6;
+select @tmpart :=29;
+select @tmpcode :=0;
+select @tmpiva :=0;
+select @tmpvp :=0;
+select @tmprow :=0; 
+select @tmpcuota :=0;
+select @tmptotalinea :=0;
+
+set @tmpiva = (select tipo from Iva where idIva=1 );
+
+no vale set @tmprow = (select row_number() over() from OfertasLineas where idOferta = @tmpoferta and idArt = @tmpart);
+buena query set @tmprow = (select idLineasOferta from OfertasLineas where idOferta = @tmpoferta and idArt = @tmpart);
+set @tmpcode = (select idIva from OfertasLineas where idLineasOferta = @tmprow)
+
+@tmprow = 3 ahora
+
+set @tmpcode = (select idIva from OfertasLineas where idLineasOferta = @tmprow and  idOferta = @tmpoferta and idArt = @tmpart); 
+
+@tmpcode = 1 
+
+set @tmpvp = (select pvpArt from OfertasLineas where idLineasOferta = @tmprow and  idOferta = @tmpoferta and idArt = @tmpart); 
+
+@tmpvp = 10.51
+
+set @tmpiva = (select tipo from Iva where idIva = @tmpcode)
+
+@tmpiva = 1.21
+
+set @tmptotalinea = (@tmpvp * @tmpiva) Nos da el total de la lina
+set @tmpcuota = (@tmptotalinea - @tmpvp) Calcula la cuota de iva
+
+update OfertasLineas set cuotaIva = @tmpcuota, totalLinea = @tmptotalinea where idLineasOferta = @tmprow and idOferta = @tmpoferta and idArt = @tmpart;
