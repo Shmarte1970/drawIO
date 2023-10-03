@@ -32,3 +32,7 @@ set @tmptotalinea = (@tmpvp * @tmpiva) Nos da el total de la lina
 set @tmpcuota = (@tmptotalinea - @tmpvp) Calcula la cuota de iva
 
 update OfertasLineas set cuotaIva = @tmpcuota, totalLinea = @tmptotalinea where idLineasOferta = @tmprow and idOferta = @tmpoferta and idArt = @tmpart;
+
+Este update actualiza las Categorias.
+update zcEspecialidad z left join zcCategoria c on z.idCategoria = c.id set z.Categoria = c.Categoria ;
+
